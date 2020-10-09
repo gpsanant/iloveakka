@@ -1,7 +1,7 @@
 # iloveakka
 Fun little site I made for my sister cause she's mad at me (Akka means older sister in Tamil).
 
-[iloveakka.com](https://iloveakka.com)
+[iloveakka.com](http://iloveakka.com)
 
 To modify for your fam and friends, set img and text in the url's query parameters. 
 Make ur images 1:1 aspect ratio for best look and feel.
