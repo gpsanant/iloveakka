@@ -1,0 +1,259 @@
+<!DOCTYPE html> <html> <head> <style>
+:root {
+         --color-background: #000;
+         --width: 100%
+         --axis-x: 1px;
+         --axis-y: 1rem;
+         --delay: 10;
+         --color-black: #000;
+         --color-white: #fff;
+         --color-orange: #d49c3d;
+         --color-red: #d14b3d;
+         --color-violet: #cf52eb;
+         --color-blue: #44a3f7;
+         --color-green: #5acb3c;
+         --color-yellow: #debf40;
+         --color-foreground: var(--color-white);
+         --font-name: Arial, Helvetica, sans-serif;
+}
+ html, body {
+         font-size: 24px;
+}
+ body {
+         background-color: var(--color-background);
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         font-family: var(--font-name);
+         height: 95vh;
+}
+ .c-rainbow {
+         counter-reset: rainbow;
+         position: relative;
+         display: block;
+         list-style: none;
+         padding: 0;
+         margin: 0;
+}
+ .c-rainbow__layer {
+         --text-color: var(--color-foreground);
+         counter-increment: rainbow;
+         font-size: 3rem;
+         color: var(--text-color);
+         text-shadow: -1px -1px 0 var(--color-black), 1px -1px 0 var(--color-black), -1px 1px 0 var(--color-black), 1px 1px 0 var(--color-black), 4px 4px 0
+rgba(0, 0, 0, .2);
+	 animation-delay: 5s;       
+	 animation: rainbow 1.5s ease-in-out infinite;
+}
+ .c-rainbow__layer:nth-child(1) {
+         animation-delay: calc(1 / var(--delay) * 1s + 5s);
+         left: calc(var(--axis-x) * 1);
+         z-index: -10;
+}
+ .c-rainbow__layer:nth-child(2) {
+         animation-delay: calc(2 / var(--delay) * 1s + 5s);
+         left: calc(var(--axis-x) * 2);
+         z-index: -20;
+}
+ .c-rainbow__layer:nth-child(3) {
+         animation-delay: calc(3 / var(--delay) * 1s + 5s);
+         left: calc(var(--axis-x) * 3);
+         z-index: -30;
+}
+ .c-rainbow__layer:nth-child(4) {
+         animation-delay: calc(4 / var(--delay) * 1s + 5s);
+         left: calc(var(--axis-x) * 4);
+         z-index: -40;
+}
+ .c-rainbow__layer:nth-child(5) {
+         animation-delay: calc(5 / var(--delay) * 1s + 5s);
+         left: calc(var(--axis-x) * 5);
+         z-index: -50;
+}
+ .c-rainbow__layer:nth-child(6) {
+         animation-delay: calc(6 / var(--delay) * 1s + 5s);
+         left: calc(var(--axis-x) * 6);
+         z-index: -60;
+}
+ .c-rainbow__layer:nth-child(7) {
+         animation-delay: calc(7 / var(--delay) * 1s + 5s);
+         left: calc(var(--axis-x) * 7);
+         z-index: -70;
+}
+ .c-rainbow__layer:not(:first-child) {
+            position: absolute;
+         top: 0;
+}
+ .c-rainbow__layer--white {
+         --text-color: var(--color-white);
+}
+ .c-rainbow__layer--orange {
+         --text-color: var(--color-orange);
+}
+ .c-rainbow__layer--red {
+         --text-color: var(--color-red);
+}
+ .c-rainbow__layer--violet {
+         --text-color: var(--color-violet);
+}
+ .c-rainbow__layer--blue {
+         --text-color: var(--color-blue);
+}
+ .c-rainbow__layer--green {
+         --text-color: var(--color-green);
+}
+ .c-rainbow__layer--yellow {
+         --text-color: var(--color-yellow);
+}
+ @keyframes rainbow {
+         0%, 100% {
+                 transform: translatey(var(--axis-y));
+        }
+         50% {
+                 transform: translatey(calc(var(--axis-y) * -1));
+        }
+}
+.hover-shaker:hover {
+  animation: shake 0.5s;
+  animation-iteration-count: infinite;
+}
+.hover-rotater:hover {
+  -webkit-animation:spin 2s linear infinite;
+}
+.shaker {
+  animation: shake 0.5s;
+  animation-delay: 10s;
+  animation-iteration-count: infinite;
+}
+.rotater {
+  -webkit-animation:spin 2s linear infinite;
+  animation-delay: 10s;
+}
+.mover-top-right {
+  animation: balloon-top-right 5s infinite linear;
+  animation-delay: 10s;
+}
+.mover-top-left {
+  animation: balloon-top-left 5s infinite linear;
+  animation-delay: 10s;
+}
+.mover-bottom-right {
+  animation: balloon-bottom-right 5s infinite linear;
+  animation-delay: 10s;
+}
+.mover-bottom-left {
+  animation: balloon-bottom-left 5s infinite linear;
+  animation-delay: 10s;
+}
+
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+
+@keyframes shake {
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  10% { transform: translate(-1px, -2px) rotate(-1deg); }
+  20% { transform: translate(-3px, 0px) rotate(1deg); }
+  30% { transform: translate(3px, 2px) rotate(0deg); }
+  40% { transform: translate(1px, -1px) rotate(1deg); }
+  50% { transform: translate(-1px, 2px) rotate(-1deg); }
+  60% { transform: translate(-3px, 1px) rotate(0deg); }
+  70% { transform: translate(3px, 1px) rotate(-1deg); }
+  80% { transform: translate(-1px, -1px) rotate(1deg); }
+  90% { transform: translate(1px, 2px) rotate(0deg); }
+  100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+@keyframes balloon-top-left {
+    0% { transform: translate(0,0) rotate(0deg) }
+    10% { transform: translate(-57.5px,-10px) rotate(-9deg) }
+    25% { transform: translate(-143.75px,-25px) rotate(-4deg) }
+    45% { transform: translate(-517.5px,22.5px) rotate(3deg) }
+    50% { transform: translate(-575px,25px) rotate(4.5deg) }
+    75% { transform: translate(-287.5px,-25px) rotate(12deg) }
+    100% { transform: translate(0,0) rotate(0deg) }
+}
+
+@keyframes balloon-bottom-left {
+    0% { transform: translate(0,0) rotate(0deg) }
+    10% { transform: translate(-57.5px,10px) rotate(9deg) }
+    25% { transform: translate(-143.75px,25px) rotate(4deg) }
+    45% { transform: translate(-517.5px,-22.5px) rotate(-3deg) }
+    50% { transform: translate(-575px,-25px) rotate(-4.5deg) }
+    75% { transform: translate(-287.5px,25px) rotate(-12deg) }
+    100% { transform: translate(0,0) rotate(0deg) }
+}
+
+
+@keyframes balloon-top-right {
+    0% { transform: translate(0,0) rotate(0deg) }
+    10% { transform: translate(57.5px,-10px) rotate(-9deg) }
+    25% { transform: translate(143.75px,-25px) rotate(-4deg) }
+    45% { transform: translate(517.5px,22.5px) rotate(3deg) }
+    50% { transform: translate(575px,25px) rotate(4.5deg) }
+    75% { transform: translate(287.5px,-25px) rotate(-12deg) }
+    100% { transform: translate(0,0) rotate(0deg) }
+}
+
+@keyframes balloon-bottom-right {
+    0% { transform: translate(0,0) rotate(0deg) }
+    10% { transform: translate(57.5px,10px) rotate(9deg) }
+    25% { transform: translate(143.75px,25px) rotate(4deg) }
+    45% { transform: translate(517.5px,-22.5px) rotate(-3deg) }
+    50% { transform: translate(575px,-25px) rotate(-4.5deg) }
+    75% { transform: translate(287.5px,25px) rotate(12deg) }
+    100% { transform: translate(0,0) rotate(0deg) }
+}
+.footer {
+  position: fixed;
+  bottom: -30px;
+  right: 10px;
+}
+</style> 
+<link rel="icon" href="https://i.ibb.co/1ZcF2FN/akka.jpg">
+<title>Yo Mama is Beautiful</title>
+</head> 
+<body> 
+<div class="container">
+  <img src="https://i.ibb.co/1ZcF2FN/akka.jpg" alt="akka" width="110" height="110" class="shaker" >
+  <img src="https://i.ibb.co/1ZcF2FN/akka.jpg" alt="akka" width="110" height="110" class="mover-top-left" >
+  <img src="https://i.ibb.co/1ZcF2FN/akka.jpg" alt="akka" width="110" height="110" class="mover-top-right" >
+  <img src="https://i.ibb.co/1ZcF2FN/akka.jpg" alt="akka" width="110" height="110" class="rotater" >
+  <br><br><br>
+  <ul class="c-rainbow">
+    <li class="c-rainbow__layer c-rainbow__layer--white">I LOVE AKKA</li>
+    <li class="c-rainbow__layer c-rainbow__layer--orange">I LOVE AKKA</li>
+    <li class="c-rainbow__layer c-rainbow__layer--red">I LOVE AKKA</li>
+    <li class="c-rainbow__layer c-rainbow__layer--violet">I LOVE AKKA</li>
+    <li class="c-rainbow__layer c-rainbow__layer--blue">I LOVE AKKA</li>
+    <li class="c-rainbow__layer c-rainbow__layer--green">I LOVE AKKA</li>
+    <li class="c-rainbow__layer c-rainbow__layer--yellow">I LOVE AKKA</li> 
+  </ul> 
+  <br><br><br>
+  <img src="https://i.ibb.co/1ZcF2FN/akka.jpg" alt="akka" width="110" height="110" class="hover-rotater" >
+  <img src="https://i.ibb.co/1ZcF2FN/akka.jpg" alt="akka" width="110" height="110" class="mover-bottom-left" >
+  <img src="https://i.ibb.co/1ZcF2FN/akka.jpg" alt="akka" width="110" height="110" class="mover-bottom-right" >
+  <img src="https://i.ibb.co/1ZcF2FN/akka.jpg" alt="akka" width="110" height="110" class="hover-shaker" >  
+</div> 
+<h6 style="color: #333333; font-family: Arial, Helvetica, sans-serif;" class="footer">For business inquiries, email the president</h6>
+<script>
+  var param = /[&?]text=([^&]+)/.exec(location.search);
+  param = param ? param[1].replace(/"/g, '&quot;') : 'I LOVE AKKA';
+  var texts = document.querySelectorAll('li');
+  texts.forEach((text) => text.innerHTML = decodeURIComponent(param));
+  var images = document.querySelectorAll('img');
+  var width = document.querySelector('ul').clientWidth;
+  if(width > 620){
+    texts.forEach((text) => text.innerHTML = "Shorter Text Pls");
+    width = document.querySelector('ul').clientWidth;
+  }
+  param = /[&?]img=([^&]+)/.exec(location.search);
+  param = param ? param[1].replace(/"/g, '&quot;') : 'https://i.ibb.co/1ZcF2FN/akka.jpg';
+  images.forEach((image) => {
+    image.height = width/4;
+    image.width = width/4;
+    image.src = param;
+  })
+  document.querySelector('link').href = param
+</script>
+</body> </html>
+                                                                   
+
